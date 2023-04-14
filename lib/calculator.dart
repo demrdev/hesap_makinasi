@@ -23,13 +23,15 @@ class _CalculatorState extends State<Calculator> {
         output = "0";
       } else if (buttonText == "=") {
         try {
-          Parser p = Parser();
-          Expression exp = p.parse(input);
-          ContextModel cm = ContextModel();
-          output = exp.evaluate(EvaluationType.REAL, cm).toString();
-        } catch (e) {
-          output = "Hata!";
-        }
+  Parser p = Parser();
+  Expression exp = p.parse(input);
+  ContextModel cm = ContextModel();
+  double result = exp.evaluate(EvaluationType.REAL, cm);
+  output = result.toStringAsFixed(result.truncateToDouble() == result ? 0 : 2);
+} catch (e) {
+  output = "Hata!";
+}
+
       } else {
         input += buttonText;
       }

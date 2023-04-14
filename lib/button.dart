@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
 
 class ButtonGrid extends StatelessWidget {
   final Function(String) onDigitPress;
 
-  ButtonGrid({required this.onDigitPress});
+  const ButtonGrid({super.key, required this.onDigitPress});
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +78,7 @@ class CalcButton extends StatelessWidget {
   final Function(String) onPressed;
   final Color? color;
 
-  CalcButton({required this.text, required this.onPressed, this.color});
+  const CalcButton({super.key, required this.text, required this.onPressed, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -91,8 +90,8 @@ class CalcButton extends StatelessWidget {
           style: TextStyle(fontSize: 24),
         ),
         style: TextButton.styleFrom(
+          foregroundColor: Colors.black,
           backgroundColor: color ?? Colors.blue[100],
-          primary: Colors.black,
           padding: EdgeInsets.all(20),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         ),
